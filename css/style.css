@@ -20,6 +20,7 @@ select {
 }
 .container {
   max-width: 600px;
+  padding: 10px 20px;
   margin: 30px auto;
   background: linear-gradient(
     0deg,
@@ -38,7 +39,7 @@ select {
 .city:last-child {
   border: none;
 }
-.data {
+.date {
   opacity: 0.5;
 }
 .time {
