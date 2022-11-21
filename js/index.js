@@ -4,10 +4,9 @@ function updateTime() {
   if (staszowElement) {
     let staszowDateElement = staszowElement.querySelector(".date");
     let staszowTimeElement = staszowElement.querySelector(".time");
-    staszowDateElement.innerHTML = moment()
-      .tz("Europe/Warsaw")
-      .format("MMMM  Do, dddd");
-    staszowTimeElement.innerHTML = moment().format("hh:mm A");
+    let staszowTimeZone = moment().tz("Europe/Warsaw");
+    staszowDateElement.innerHTML = staszowTimeZone.format("MMMM  Do, dddd");
+    staszowTimeElement.innerHTML = staszowTimeZone.format("hh:mm A");
   }
 
   //Stockholm
@@ -15,40 +14,45 @@ function updateTime() {
   if (stockholmElement) {
     let stockholmDateElement = stockholmElement.querySelector(".date");
     let stockholmTimeElement = stockholmElement.querySelector(".time");
-    stockholmDateElement.innerHTML = moment()
-      .tz("Europe/Stockholm")
-      .format("MMMM  Do, dddd");
-    stockholmTimeElement.innerHTML = moment().format("hh:mm A");
+    let stockholmTimeZone = moment().tz("Europe/Stockholm");
+    stockholmDateElement.innerHTML = stockholmTimeZone.format("MMMM  Do, dddd");
+    stockholmTimeElement.innerHTML = stockholmTimeZone.format("hh:mm A");
   }
   //Paris
   let parisElement = document.querySelector("#paris");
   if (parisElement) {
     let parisDateElement = parisElement.querySelector(".date");
     let parisTimeElement = parisElement.querySelector(".time");
-    parisDateElement.innerHTML = moment()
-      .tz("Europe/Paris")
-      .format("MMMM  Do, dddd");
-    parisTimeElement.innerHTML = moment().format("hh:mm A");
+    let parisTimeZone = moment().tz("Europe/Paris");
+    parisDateElement.innerHTML = parisTimeZone.format("MMMM  Do, dddd");
+    parisTimeElement.innerHTML = parisTimeZone.format("hh:mm A");
   }
   //Bogota
   let bogotaElement = document.querySelector("#bogota");
   if (bogotaElement) {
     let bogotaDateElement = bogotaElement.querySelector(".date");
     let bogotaTimeElement = bogotaElement.querySelector(".time");
-    bogotaDateElement.innerHTML = moment()
-      .tz("America/Bogota")
-      .format("MMMM  Do, dddd");
-    bogotaTimeElement.innerHTML = moment().format("hh:mm A");
+    let bogotaTimeZone = moment().tz("America/Bogota");
+    bogotaDateElement.innerHTML = bogotaTimeZone.format("MMMM  Do, dddd");
+    bogotaTimeElement.innerHTML = bogotaTimeZone.format("hh:mm A");
   }
   //Reykjaviki
   let reykjavikElement = document.querySelector("#reykjavik");
   if (reykjavikElement) {
     let reykjavikDateElement = reykjavikElement.querySelector(".date");
     let reykjavikTimeElement = reykjavikElement.querySelector(".time");
-    reykjavikDateElement.innerHTML = moment()
-      .tz("Atlantic/Reykjavik")
-      .format("MMMM  Do, dddd");
-    reykjavikTimeElement.innerHTML = moment().format("hh:mm A");
+    let reykjavikTimeZone = moment().tz("Atlantic/Reykjavik");
+    reykjavikDateElement.innerHTML = reykjavikTimeZone.format("MMMM  Do, dddd");
+    reykjavikTimeElement.innerHTML = reykjavikTimeZone.format("hh:mm A");
+  }
+  //London
+  let londonElement = document.querySelector("#london");
+  if (londonElement) {
+    let londonDateElement = londonElement.querySelector(".date");
+    let londonTimeElement = londonElement.querySelector(".time");
+    let londonTimeZone = moment().tz("Europe/London");
+    londonDateElement.innerHTML = londonTimeZone.format("MMMM  Do, dddd");
+    londonTimeElement.innerHTML = londonTimeZone.format("hh:mm A");
   }
 }
 function updateCity(event) {
