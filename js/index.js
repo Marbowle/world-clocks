@@ -20,9 +20,42 @@ function updateTime() {
       .format("MMMM  Do, dddd");
     stockholmTimeElement.innerHTML = moment().format("hh:mm A");
   }
+  //Paris
+  let parisElement = document.querySelector("#paris");
+  if (parisElement) {
+    let parisDateElement = parisElement.querySelector(".date");
+    let parisTimeElement = parisElement.querySelector(".time");
+    parisDateElement.innerHTML = moment()
+      .tz("Europe/Paris")
+      .format("MMMM  Do, dddd");
+    parisTimeElement.innerHTML = moment().format("hh:mm A");
+  }
+  //Bogota
+  let bogotaElement = document.querySelector("#bogota");
+  if (bogotaElement) {
+    let bogotaDateElement = bogotaElement.querySelector(".date");
+    let bogotaTimeElement = bogotaElement.querySelector(".time");
+    bogotaDateElement.innerHTML = moment()
+      .tz("America/Bogota")
+      .format("MMMM  Do, dddd");
+    bogotaTimeElement.innerHTML = moment().format("hh:mm A");
+  }
+  //Reykjaviki
+  let reykjavikElement = document.querySelector("#reykjavik");
+  if (reykjavikElement) {
+    let reykjavikDateElement = reykjavikElement.querySelector(".date");
+    let reykjavikTimeElement = reykjavikElement.querySelector(".time");
+    reykjavikDateElement.innerHTML = moment()
+      .tz("Atlantic/Reykjavik")
+      .format("MMMM  Do, dddd");
+    reykjavikTimeElement.innerHTML = moment().format("hh:mm A");
+  }
 }
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
@@ -34,6 +67,7 @@ function updateCity(event) {
           </div>
           <div class="time">${cityTime.format("hh:mm A")}</div>
         </div>
+     <a href="/">All cities</a>
   `;
 }
 
